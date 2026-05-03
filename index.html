@@ -1,314 +1,431 @@
-# index.html
-
-```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 <title>حصنك اليومي ✨</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;-webkit-tap-highlight-color:transparent}
-html{scroll-behavior:smooth}
-body{background:#0f172a;color:#fff;min-height:100vh;padding:12px;transition:.5s;overflow-x:hidden}
-body.morning-theme{background:#eef4f8;color:#0f172a}
-body.evening-theme{background:#0f172a;color:#fff}
-body.quick-theme{background:#102a22;color:#fff}
-.container{max-width:480px;margin:auto}
-.hero{background:rgba(255,255,255,.08);padding:20px;border-radius:24px;text-align:center;margin-bottom:16px;border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(10px)}
-.hero h1{font-size:30px;margin-bottom:8px}
-.hero p{font-size:22px;font-weight:900;line-height:1.8;color:#fde68a}
-.quote{background:rgba(255,255,255,.75);color:#475569;padding:14px;border-radius:18px;text-align:center;line-height:1.8;margin-bottom:14px}
-.streak{text-align:center;color:#f97316;font-size:18px;font-weight:800;margin-bottom:18px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
-.btn-mode{border:none;padding:16px;border-radius:20px;color:#fff;font-weight:800;font-size:15px;cursor:pointer}
-.morning{background:linear-gradient(135deg,#38bdf8,#2563eb)}
-.evening{background:linear-gradient(135deg,#6366f1,#312e81)}
-.quick{background:linear-gradient(135deg,#22c55e,#15803d)}
-.tasbeeh{background:linear-gradient(135deg,#06b6d4,#0f766e)}
-.card{display:none;background:rgba(255,255,255,.82);border-radius:24px;padding:18px;backdrop-filter:blur(8px);box-shadow:0 10px 30px rgba(0,0,0,.08)}
-.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:8px}
-.stats{display:flex;gap:8px}
-.stat{background:#fff;color:#0f172a;padding:8px 12px;border-radius:12px;font-size:13px;font-weight:700}
-.chick{display:flex;align-items:center;gap:8px}
-.chick-emoji{font-size:42px;animation:floaty 3s infinite}
-@keyframes floaty{50%{transform:translateY(-5px)}}
-.speech{background:#fff;color:#0f172a;padding:8px 12px;border-radius:14px;font-size:11px;font-weight:800;max-width:120px;line-height:1.6}
-.progress-wrap{height:10px;background:#cbd5e1;border-radius:50px;overflow:hidden;margin-bottom:18px}
-.progress{height:100%;width:0;background:linear-gradient(90deg,#22c55e,#16a34a);transition:.3s}
-.title{text-align:center;color:#ca8a04;font-size:22px;font-weight:800;margin-bottom:14px}
-.text{color:#0f172a;font-size:20px;line-height:2.4;text-align:center;font-weight:600;white-space:pre-line;margin-bottom:18px}
-.repeat,.counter{text-align:center;color:#0f172a}
-.repeat{font-size:16px;margin-bottom:10px}
-.counter{font-size:42px;font-weight:900;margin-bottom:16px}
-.main-btn{width:100%;border:none;background:linear-gradient(135deg,#22c55e,#15803d);padding:16px;border-radius:18px;color:#fff;font-size:18px;font-weight:800;cursor:pointer}
-.finish{text-align:center;display:none;padding:30px 10px}
-.finish h2{font-size:36px;margin-bottom:10px}
-.finish p{font-size:18px;line-height:1.8;color:#475569}
-.footer{text-align:center;color:#94a3b8;font-size:12px;margin-top:24px;padding-bottom:40px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{background:radial-gradient(circle at top,#1e293b,#020617);color:white;min-height:100vh;overflow-x:hidden;padding:12px;transition:1s;}
+body.morning-theme{background:radial-gradient(circle at top,#f59e0b,#7c2d12);}
+body.evening-theme{background:radial-gradient(circle at top,#312e81,#020617);}
+body.quick-theme{background:radial-gradient(circle at top,#166534,#052e16);}
+
+.container{width:100%;max-width:480px;margin:auto;}
+.header{text-align:center;margin-top:6px;margin-bottom:16px;}
+.hero-sadaka{background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.1);padding:18px 14px;border-radius:24px;margin-bottom:18px;backdrop-filter:blur(10px);}
+.sadaka-title{font-size:18px;font-weight:800;color:#fde68a;margin-bottom:10px;}
+.sadaka-names{font-size:22px;font-weight:900;line-height:1.8;}
+.logo{font-size:30px;font-weight:900;}
+.quote-box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);padding:14px;border-radius:18px;text-align:center;margin-bottom:14px;font-size:15px;color:#fde68a;line-height:1.8;cursor:pointer;position:relative;transition:.3s;}
+.quote-box:hover{background:rgba(255,255,255,.12);}
+.share-hint{font-size:11px;color:rgba(255,255,255,.4);margin-top:6px;}
+
+/* ===== STREAK ===== */
+.streak{text-align:center;margin-bottom:18px;font-size:16px;color:#fb7185;font-weight:bold;}
+
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;}
+.mode-btn{border:none;padding:16px 10px;border-radius:20px;cursor:pointer;color:white;font-size:15px;font-weight:800;transition:.3s;}
+.mode-btn:active{transform:scale(.96);}
+.morning{background:linear-gradient(135deg,#f59e0b,#ea580c);}
+.evening{background:linear-gradient(135deg,#6366f1,#312e81);}
+.quick{background:linear-gradient(135deg,#22c55e,#166534);}
+.tasbeeh{background:linear-gradient(135deg,#06b6d4,#0f766e);}
+
+.card{display:none;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:16px;border-radius:24px;backdrop-filter:blur(10px);animation:fade .4s ease;position:relative;}
+@keyframes fade{from{opacity:0;transform:translateY(15px);}to{opacity:1;transform:translateY(0);}}
+
+/* ===== TOP STATS with mascot inline ===== */
+.top-stats{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:10px;}
+.stat{background:rgba(255,255,255,.08);padding:8px 12px;border-radius:12px;font-size:13px;}
+.inline-mascot{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);padding:8px 14px;border-radius:12px;}
+.inline-mascot-emoji{font-size:28px;animation:floaty 3s infinite ease-in-out;}
+.inline-mascot-text{font-size:12px;font-weight:700;color:#fde68a;max-width:100px;line-height:1.4;}
+
+.progress-container{width:100%;height:10px;background:#334155;border-radius:50px;overflow:hidden;margin-bottom:16px;}
+.progress{height:100%;width:0%;background:linear-gradient(90deg,#22c55e,#4ade80);transition:.4s;}
+
+.zekr-title{text-align:center;font-size:20px;color:#fde047;margin-bottom:14px;font-weight:800;}
+.zekr-text{line-height:2.2;font-size:18px;text-align:center;margin-bottom:18px;white-space:pre-line;}
+.repeat{text-align:center;font-size:16px;margin-bottom:10px;}
+.counter{text-align:center;font-size:40px;font-weight:900;margin-bottom:16px;}
+.glow{animation:glow .4s ease;}
+@keyframes glow{0%{transform:scale(1);}50%{transform:scale(1.08);}100%{transform:scale(1);}}
+
+.btn{width:100%;border:none;padding:16px;border-radius:18px;cursor:pointer;color:white;font-size:18px;font-weight:800;}
+.main-btn{background:linear-gradient(135deg,#22c55e,#15803d);}
+
+/* ===== CELEBRATION OVERLAY ===== */
+.celebration-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:9999;justify-content:center;align-items:center;flex-direction:column;}
+.celebration-overlay.show{display:flex;animation:fadeIn .3s ease;}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.celebration-box{background:linear-gradient(135deg,#1e293b,#0f172a);border:2px solid rgba(253,230,138,.3);border-radius:32px;padding:40px 32px;text-align:center;max-width:320px;width:90%;position:relative;overflow:hidden;}
+.celebration-mascot{font-size:80px;animation:celebBounce 0.6s ease infinite alternate;}
+@keyframes celebBounce{from{transform:translateY(0) scale(1);}to{transform:translateY(-12px) scale(1.1);}}
+.celebration-title{font-size:28px;font-weight:900;color:#fde68a;margin:16px 0 8px;}
+.celebration-msg{font-size:16px;color:#e2e8f0;line-height:1.8;margin-bottom:24px;}
+.celebration-btn{background:linear-gradient(135deg,#f59e0b,#ea580c);border:none;color:white;padding:14px 32px;border-radius:18px;font-size:17px;font-weight:800;cursor:pointer;font-family:'Cairo',sans-serif;}
+.confetti-wrap{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.confetti-piece{position:absolute;width:10px;height:10px;border-radius:2px;animation:confettiFall linear infinite;}
+@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1;}100%{transform:translateY(600px) rotate(720deg);opacity:0;}}
+
+/* ===== FINISH ===== */
+.finish{display:none;text-align:center;padding:24px 8px;}
+.finish h2{font-size:34px;margin-bottom:12px;}
+.finish p{font-size:17px;line-height:1.8;color:#e2e8f0;}
+.finish-next-hint{margin-top:16px;padding:14px;background:rgba(255,255,255,.08);border-radius:16px;font-size:15px;color:#fde68a;line-height:1.8;}
+
+/* ===== FLOATING MASCOT ===== */
+.floating-mascot{position:fixed;bottom:18px;left:14px;z-index:998;display:flex;align-items:flex-end;gap:8px;animation:floaty 3s infinite ease-in-out;}
+@keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+.mascot{font-size:52px;}
+.speech{background:white;color:#111827;padding:10px 14px;border-radius:16px;font-size:12px;font-weight:700;max-width:160px;line-height:1.6;box-shadow:0 10px 20px rgba(0,0,0,.2);}
+
+/* ===== TASBEEH ===== */
+.tasbeeh-area{display:none;}
+.tasbeeh-select{width:100%;padding:14px;border-radius:16px;border:none;margin-bottom:18px;font-size:16px;}
+.tasbeeh-counter{text-align:center;font-size:58px;margin:24px 0;font-weight:900;}
+.footer{text-align:center;margin-top:24px;color:#cbd5e1;font-size:12px;padding-bottom:80px;}
 </style>
 </head>
 <body>
+
 <div class="container">
-<div class="hero">
-<h1>حصنك اليومي ✨</h1>
-<p>🤍 صدقة جارية على روح<br>خالد آدم • عمرو خالد • محمود فوزي</p>
+  <div class="header">
+    <div class="hero-sadaka">
+      <div class="sadaka-title">🤍 صدقة جارية على روح 🤍</div>
+      <div class="sadaka-names">خالد آدم • عمرو خالد • محمود فوزي</div>
+    </div>
+    <div class="logo">حصنك اليومي ✨</div>
+  </div>
+
+  <div class="quote-box" id="quoteBox" onclick="shareQuote()">
+    <div id="quote"></div>
+    <div class="share-hint">👆 اضغط عشان تشارك الاقتباس على واتساب</div>
+  </div>
+
+  <div class="streak">🔥 الاستريك: <span id="streak">1</span> يوم</div>
+
+  <div class="mode-grid">
+    <button class="mode-btn morning" onclick="startMode('morning')">🌅 أذكار الصباح</button>
+    <button class="mode-btn evening" onclick="startMode('evening')">🌙 أذكار المساء</button>
+    <button class="mode-btn quick" onclick="startMode('quick')">⚡ الجامع المختصر</button>
+    <button class="mode-btn tasbeeh" onclick="openTasbeeh()">📿 التسبيح الحر</button>
+  </div>
+
+  <div class="card" id="card">
+    <div class="top-stats">
+      <div class="stat">XP: <span id="xp">0</span></div>
+      <div class="inline-mascot">
+        <div class="inline-mascot-emoji">🐥</div>
+        <div class="inline-mascot-text" id="inlineSpeech">يلا ابدأ 🌿</div>
+      </div>
+      <div class="stat">🔥 Combo: <span id="combo">0</span></div>
+    </div>
+    <div class="progress-container"><div class="progress" id="progress"></div></div>
+    <div class="zekr-title" id="zekrTitle"></div>
+    <div class="zekr-text" id="zekrText"></div>
+    <div class="repeat">التكرار: <span id="repeat"></span> مرة</div>
+    <div class="counter" id="counter">0</div>
+    <button class="btn main-btn" onclick="countZekr()">سبحت ✅</button>
+  </div>
+
+  <div class="card tasbeeh-area" id="tasbeehArea">
+    <select class="tasbeeh-select">
+      <option>سبحان الله</option>
+      <option>الحمد لله</option>
+      <option>الله أكبر</option>
+      <option>لا إله إلا الله</option>
+      <option>استغفر الله</option>
+      <option>اللهم صل وسلم على نبينا محمد ﷺ</option>
+    </select>
+    <div class="tasbeeh-counter" id="freeCounter">0</div>
+    <button class="btn main-btn" onclick="increaseTasbeeh()">📿 سبح</button>
+  </div>
+
+  <div class="finish" id="finish">
+    <h2>🏆 أحسنت</h2>
+    <p id="finishText">تم إنهاء الورد اليومي 🌿</p>
+    <div class="finish-next-hint" id="nextHint"></div>
+  </div>
+
+  <div class="footer">شارك التطبيق تؤجر عليه ❤️</div>
 </div>
-<div class="quote" id="quote"></div>
-<div class="streak">🔥 الاستريك: <span id="streak">0</span> يوم</div>
-<div class="grid">
-<button class="btn-mode morning" onclick="startMode('morning')">🌅 أذكار الصباح</button>
-<button class="btn-mode evening" onclick="startMode('evening')">🌙 أذكار المساء</button>
-<button class="btn-mode quick" onclick="startMode('quick')">⚡ الجامع المختصر</button>
-<button class="btn-mode tasbeeh" onclick="openTasbeeh()">📿 التسبيح الحر</button>
+
+<!-- FLOATING MASCOT -->
+<div class="floating-mascot">
+  <div class="mascot">🐥</div>
+  <div class="speech" id="speech">جاهز تبدأ وردك النهارده؟ 🌿</div>
 </div>
-<div class="card" id="card">
-<div class="top">
-<div class="stats">
-<div class="stat">XP: <span id="xp">0</span></div>
-<div class="stat">🔥 Combo: <span id="combo">0</span></div>
+
+<!-- CELEBRATION OVERLAY -->
+<div class="celebration-overlay" id="celebOverlay">
+  <div class="celebration-box">
+    <div class="confetti-wrap" id="confettiWrap"></div>
+    <div class="celebration-mascot">🐥</div>
+    <div class="celebration-title">أشطر كتكوت! 🏆</div>
+    <div class="celebration-msg" id="celebMsg">خلصت وردك بالكامل يا بطل 🌿</div>
+    <button class="celebration-btn" onclick="closeCelebration()">يلا نكمل ✨</button>
+  </div>
 </div>
-<div class="chick">
-<div class="speech" id="speech">جاهز تبدأ؟ 🌿</div>
-<div class="chick-emoji">🐥</div>
-</div>
-</div>
-<div class="progress-wrap"><div class="progress" id="progress"></div></div>
-<div class="title" id="zekrTitle"></div>
-<div class="text" id="zekrText"></div>
-<div class="repeat">التكرار: <span id="repeat"></span> مرة</div>
-<div class="counter" id="counter">0</div>
-<button class="main-btn" onclick="countZekr()">سبحت ✅</button>
-</div>
-<div class="finish" id="finish">
-<h2>🏆 أحسنت</h2>
-<p id="finishText">تم إنهاء الورد اليومي 🌿</p>
-</div>
-<div class="footer">شارك التطبيق تؤجر عليه ❤️</div>
-</div>
+
 <script>
-const quotes=["ألا بذكر الله تطمئن القلوب","واذكر ربك إذا نسيت","إن الله مع الصابرين","فاذكروني أذكركم","ولا تيأسوا من روح الله","كل تسبيحة نور 🤍","جنة القلب في ذكر الله","ومن يتوكل على الله فهو حسبه","استغفر.. فباب الله لا يغلق","الطمأنينة في القرب من الله"];
-document.getElementById('quote').innerText=quotes[Math.floor(Math.random()*quotes.length)];
+/* ===== QUOTES ===== */
+const quotes = [
+"ألا بذكر الله تطمئن القلوب","واذكر ربك إذا نسيت","إن الله مع الصابرين",
+"فاذكروني أذكركم","ولا تيأسوا من روح الله","إن مع العسر يسرا",
+"واصبر وما صبرك إلا بالله","ومن يتوكل على الله فهو حسبه","وقل رب زدني علما",
+"إن الله يحب التوابين","ربنا آتنا في الدنيا حسنة","لا تحزن إن الله معنا",
+"واستعينوا بالصبر والصلاة","قل لن يصيبنا إلا ما كتب الله لنا",
+"وهو معكم أينما كنتم","رب اشرح لي صدري","إن رحمة الله قريب من المحسنين",
+"ادعوني أستجب لكم","إن الله لا يضيع أجر المحسنين","لعلكم تفلحون",
+"إن الله غفور رحيم","إن الله يحب الصابرين","واعبد ربك حتى يأتيك اليقين",
+"وما توفيقي إلا بالله","فسبح بحمد ربك","أكثروا من الصلاة على النبي ﷺ",
+"الدنيا ساعة فاجعلها طاعة","خير الزاد التقوى","ابتسم فالله معك",
+"اجعل بينك وبين الله بابًا لا يغلق","الطمأنينة في القرب من الله",
+"كل ذكر يرفعك درجة","استغفر.. فباب الله لا يغلق",
+"اذكر الله في الرخاء يذكرك في الشدة","جنة القلب في ذكر الله",
+"الله أقرب إليك مما تظن","لا تترك وردك مهما كان يومك",
+"كل تسبيحة نور 🤍","ربك يعلم تعبك فلا تيأس","ما دام الله معك فلا خوف"
+];
 
-const today=new Date().toDateString();
-let streak=parseFloat(localStorage.getItem('streak'))||0;
-let lastActiveDate=localStorage.getItem('lastActiveDate');
-let morningDone=localStorage.getItem('morningDone');
-let eveningDone=localStorage.getItem('eveningDone');
-if(lastActiveDate&&lastActiveDate!==today){morningDone='false';eveningDone='false';localStorage.setItem('morningDone','false');localStorage.setItem('eveningDone','false')}
-document.getElementById('streak').innerText=streak;
+let currentQuote = quotes[Math.floor(Math.random()*quotes.length)];
+document.getElementById("quote").innerText = currentQuote;
 
-const ayatKursi=`اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ`;
+/* ===== SHARE QUOTE ===== */
+function shareQuote(){
+  const text = `✨ حصنك اليومي ✨\n\n"${currentQuote}"\n\nشارك التطبيق وتؤجر 🤍`;
+  const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+  window.open(url,'_blank');
+}
+
+/* ===== STREAK - مبني على التاريخ بشكل صح ===== */
+const today = new Date().toDateString();
+let storedLast = localStorage.getItem("lastVisit");
+let streak = parseInt(localStorage.getItem("streak")) || 0;
+
+if(storedLast !== today){
+  // مختلف عن النهارده
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate()-1);
+  
+  if(storedLast === yesterday.toDateString()){
+    // أمبارح دخل - يكمل الاستريك
+    streak++;
+  } else if(!storedLast){
+    // أول مرة
+    streak = 1;
+  } else {
+    // انقطع - يرجع للصفر
+    streak = 1;
+  }
+  localStorage.setItem("lastVisit", today);
+  localStorage.setItem("streak", streak);
+}
+document.getElementById("streak").innerText = streak;
+
+/* ===== DATA ===== */
+const ayatKursi = `اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ`;
 
 const data={
-
 morning:[
-{
-title:'آية الكرسي',
-text:ayatKursi,
-repeat:1
-},
-{
-title:'سورة الإخلاص',
-text:`قُلْ هُوَ اللَّهُ أَحَدٌ
-اللَّهُ الصَّمَدُ
-لَمْ يَلِدْ وَلَمْ يُولَدْ
-وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ`,
-repeat:3
-},
-{
-title:'سورة الفلق',
-text:`قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ
-مِن شَرِّ مَا خَلَقَ
-وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ
-وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ
-وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ`,
-repeat:3
-},
-{
-title:'سورة الناس',
-text:`قُلْ أَعُوذُ بِرَبِّ النَّاسِ
-مَلِكِ النَّاسِ
-إِلَٰهِ النَّاسِ
-مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ
-الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ
-مِنَ الْجِنَّةِ وَالنَّاسِ`,
-repeat:3
-},
-{
-title:'أصبحنا وأصبح الملك لله',
-text:`أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ`,
-repeat:1
-},
-{
-title:'سيد الاستغفار',
-text:`اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ`,
-repeat:1
-},
-{
-title:'اللهم إني أصبحت أُشهدك',
-text:`اللَّهُمَّ إِنِّي أَصْبَحْتُ أُشْهِدُكَ وَأُشْهِدُ حَمَلَةَ عَرْشِكَ وَمَلَائِكَتَكَ وَجَمِيعَ خَلْقِكَ أَنَّكَ أَنْتَ اللَّهُ`,
-repeat:4
-},
-{
-title:'اللهم ما أصبح بي من نعمة',
-text:`اللَّهُمَّ مَا أَصْبَحَ بِي مِنْ نِعْمَةٍ أَوْ بِأَحَدٍ مِنْ خَلْقِكَ فَمِنْكَ وَحْدَكَ`,
-repeat:1
-},
-{
-title:'حسبي الله',
-text:`حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ`,
-repeat:7
-},
-{
-title:'بسم الله الذي لا يضر',
-text:`بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ`,
-repeat:3
-},
-{
-title:'رضيت بالله ربًا',
-text:`رَضِيتُ بِاللَّهِ رَبًّا وَبِالإِسْلَامِ دِينًا وَبِمُحَمَّدٍ ﷺ نَبِيًّا`,
-repeat:3
-},
-{
-title:'يا حي يا قيوم',
-text:`يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ`,
-repeat:1
-},
-{
-title:'أصبحنا على فطرة الإسلام',
-text:`أَصْبَحْنَا عَلَى فِطْرَةِ الإِسْلَامِ وَعَلَى كَلِمَةِ الإِخْلَاصِ`,
-repeat:1
-},
-{
-title:'سبحان الله وبحمده',
-text:`سُبْحَانَ اللَّهِ وَبِحَمْدِهِ`,
-repeat:100
-},
-{
-title:'لا إله إلا الله وحده',
-text:`لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ`,
-repeat:100
-}
+{title:"آية الكرسي",text:ayatKursi,repeat:1},
+{title:"سورة الإخلاص",text:`قُلْ هُوَ اللَّهُ أَحَدٌ\nاللَّهُ الصَّمَدُ\nلَمْ يَلِدْ وَلَمْ يُولَدْ\nوَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ`,repeat:3},
+{title:"سورة الفلق",text:`قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ\nمِن شَرِّ مَا خَلَقَ\nوَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ\nوَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ\nوَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ`,repeat:3},
+{title:"سورة الناس",text:`قُلْ أَعُوذُ بِرَبِّ النَّاسِ\nمَلِكِ النَّاسِ\nإِلَٰهِ النَّاسِ\nمِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ\nالَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ\nمِنَ الْجِنَّةِ وَالنَّاسِ`,repeat:3},
+{title:"أصبحنا وأصبح الملك لله",text:`أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ`,repeat:1},
+{title:"سيد الاستغفار",text:`اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ`,repeat:1},
+{title:"اللهم إني أصبحت أُشهدك",text:`اللَّهُمَّ إِنِّي أَصْبَحْتُ أُشْهِدُكَ وَأُشْهِدُ حَمَلَةَ عَرْشِكَ وَمَلَائِكَتَكَ وَجَمِيعَ خَلْقِكَ أَنَّكَ أَنْتَ اللَّهُ`,repeat:4},
+{title:"اللهم ما أصبح بي من نعمة",text:`اللَّهُمَّ مَا أَصْبَحَ بِي مِنْ نِعْمَةٍ أَوْ بِأَحَدٍ مِنْ خَلْقِكَ فَمِنْكَ وَحْدَكَ`,repeat:1},
+{title:"حسبي الله",text:`حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ`,repeat:7},
+{title:"بسم الله الذي لا يضر",text:`بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ`,repeat:3},
+{title:"رضيت بالله ربًا",text:`رَضِيتُ بِاللَّهِ رَبًّا وَبِالإِسْلَامِ دِينًا وَبِمُحَمَّدٍ ﷺ نَبِيًّا`,repeat:3},
+{title:"يا حي يا قيوم",text:`يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ`,repeat:1},
+{title:"أصبحنا على فطرة الإسلام",text:`أَصْبَحْنَا عَلَى فِطْرَةِ الإِسْلَامِ وَعَلَى كَلِمَةِ الإِخْلَاصِ`,repeat:1},
+{title:"سبحان الله وبحمده",text:`سُبْحَانَ اللَّهِ وَبِحَمْدِهِ`,repeat:100},
+{title:"لا إله إلا الله وحده",text:`لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ`,repeat:100}
 ],
-
 evening:[
-{
-title:'آية الكرسي',
-text:ayatKursi,
-repeat:1
-},
-{
-title:'سورة الإخلاص',
-text:`قُلْ هُوَ اللَّهُ أَحَدٌ
-اللَّهُ الصَّمَدُ
-لَمْ يَلِدْ وَلَمْ يُولَدْ
-وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ`,
-repeat:3
-},
-{
-title:'سورة الفلق',
-text:`قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ
-مِن شَرِّ مَا خَلَقَ
-وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ
-وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ
-وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ`,
-repeat:3
-},
-{
-title:'سورة الناس',
-text:`قُلْ أَعُوذُ بِرَبِّ النَّاسِ
-مَلِكِ النَّاسِ
-إِلَٰهِ النَّاسِ
-مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ
-الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ
-مِنَ الْجِنَّةِ وَالنَّاسِ`,
-repeat:3
-},
-{
-title:'أمسينا وأمسى الملك لله',
-text:`أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ`,
-repeat:1
-},
-{
-title:'سيد الاستغفار',
-text:`اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ`,
-repeat:1
-},
-{
-title:'اللهم إني أمسيت أُشهدك',
-text:`اللَّهُمَّ إِنِّي أَمْسَيْتُ أُشْهِدُكَ`,
-repeat:4
-},
-{
-title:'اللهم ما أمسى بي من نعمة',
-text:`اللَّهُمَّ مَا أَمْسَى بِي مِنْ نِعْمَةٍ`,
-repeat:1
-},
-{
-title:'حسبي الله',
-text:`حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ`,
-repeat:7
-},
-{
-title:'بسم الله الذي لا يضر',
-text:`بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ`,
-repeat:3
-},
-{
-title:'رضيت بالله ربًا',
-text:`رَضِيتُ بِاللَّهِ رَبًّا`,
-repeat:3
-},
-{
-title:'يا حي يا قيوم',
-text:`يَا حَيُّ يَا قَيُّومُ`,
-repeat:1
-},
-{
-title:'أمسينا على فطرة الإسلام',
-text:`أَمْسَيْنَا عَلَى فِطْرَةِ الإِسْلَامِ`,
-repeat:1
-},
-{
-title:'سبحان الله وبحمده',
-text:`سُبْحَانَ اللَّهِ وَبِحَمْدِهِ`,
-repeat:100
-},
-{
-title:'لا إله إلا الله وحده',
-text:`لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ`,
-repeat:100
-}
+{title:"آية الكرسي",text:ayatKursi,repeat:1},
+{title:"سورة الإخلاص",text:`قُلْ هُوَ اللَّهُ أَحَدٌ\nاللَّهُ الصَّمَدُ\nلَمْ يَلِدْ وَلَمْ يُولَدْ\nوَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ`,repeat:3},
+{title:"سورة الفلق",text:`قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ\nمِن شَرِّ مَا خَلَقَ\nوَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ\nوَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ\nوَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ`,repeat:3},
+{title:"سورة الناس",text:`قُلْ أَعُوذُ بِرَبِّ النَّاسِ\nمَلِكِ النَّاسِ\nإِلَٰهِ النَّاسِ\nمِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ\nالَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ\nمِنَ الْجِنَّةِ وَالنَّاسِ`,repeat:3},
+{title:"أمسينا وأمسى الملك لله",text:`أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ`,repeat:1},
+{title:"سيد الاستغفار",text:`اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ`,repeat:1},
+{title:"اللهم إني أمسيت أُشهدك",text:`اللَّهُمَّ إِنِّي أَمْسَيْتُ أُشْهِدُكَ`,repeat:4},
+{title:"اللهم ما أمسى بي من نعمة",text:`اللَّهُمَّ مَا أَمْسَى بِي مِنْ نِعْمَةٍ`,repeat:1},
+{title:"حسبي الله",text:`حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ`,repeat:7},
+{title:"بسم الله الذي لا يضر",text:`بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ`,repeat:3},
+{title:"رضيت بالله ربًا",text:`رَضِيتُ بِاللَّهِ رَبًّا`,repeat:3},
+{title:"يا حي يا قيوم",text:`يَا حَيُّ يَا قَيُّومُ`,repeat:1},
+{title:"أمسينا على فطرة الإسلام",text:`أَمْسَيْنَا عَلَى فِطْرَةِ الإِسْلَامِ`,repeat:1},
+{title:"سبحان الله وبحمده",text:`سُبْحَانَ اللَّهِ وَبِحَمْدِهِ`,repeat:100},
+{title:"لا إله إلا الله وحده",text:`لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ`,repeat:100}
 ],
-
 quick:[
-{
-title:'بسم الله الذي لا يضر',
-text:`بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ`,
-repeat:3
-},
-{
-title:'أعوذ بكلمات الله التامات',
-text:`أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ`,
-repeat:3
-},
-{
-title:'لا إله إلا الله وحده',
-text:`لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ`,
-repeat:10
-}
+{title:"بسم الله الذي لا يضر",text:`بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ`,repeat:3},
+{title:"أعوذ بكلمات الله التامات",text:`أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ`,repeat:3},
+{title:"لا إله إلا الله وحده",text:`لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ`,repeat:10}
 ]
 };
 
-let currentMode=[];let currentIndex=0;let currentCount=0;let xp=0;let combo=0;
-function startMode(mode){document.body.className='';if(mode==='morning')document.body.classList.add('morning-theme');if(mode==='evening')document.body.classList.add('evening-theme');if(mode==='quick')document.body.classList.add('quick-theme');document.getElementById('card').style.display='block';document.getElementById('finish').style.display='none';currentMode=data[mode];currentIndex=0;currentCount=0;xp=0;combo=0;loadZekr();setTimeout(()=>{document.getElementById('card').scrollIntoView({behavior:'smooth'})},100)}
-function loadZekr(){const item=currentMode[currentIndex];document.getElementById('zekrTitle').innerText=item.title;document.getElementById('zekrText').innerText=item.text;document.getElementById('repeat').innerText=item.repeat;document.getElementById('counter').innerText=`${currentCount}/${item.repeat}`;updateProgress()}
-function countZekr(){const item=currentMode[currentIndex];currentCount++;xp+=5;combo++;document.getElementById('xp').innerText=xp;document.getElementById('combo').innerText=combo;document.getElementById('counter').innerText=`${currentCount}/${item.repeat}`;if(currentCount>=item.repeat){currentIndex++;currentCount=0;if(currentIndex>=currentMode.length){document.getElementById('card').style.display='none';document.getElementById('finish').style.display='block';document.getElementById('speech').innerText='أشطر كتكوت 🐥🏆';if(document.body.classList.contains('morning-theme')&&morningDone!=='true'){streak+=0.5;morningDone='true';localStorage.setItem('morningDone','true')}if(document.body.classList.contains('evening-theme')&&eveningDone!=='true'){streak+=0.5;eveningDone='true';localStorage.setItem('eveningDone','true')}localStorage.setItem('streak',streak);localStorage.setItem('lastActiveDate',today);document.getElementById('streak').innerText=streak;return}loadZekr()}}
-function updateProgress(){document.getElementById('progress').style.width=((currentIndex/currentMode.length)*100)+'%'}
-function openTasbeeh(){alert('التسبيح الحر قادم في النسخة القادمة 🤍')}
+let currentMode=[];
+let currentModeName='';
+let currentIndex=0;
+let currentCount=0;
+let xp=0;
+let combo=0;
+
+/* ===== CONFETTI ===== */
+function spawnConfetti(){
+  const wrap = document.getElementById("confettiWrap");
+  wrap.innerHTML='';
+  const colors=['#fde68a','#fb7185','#4ade80','#60a5fa','#f472b6','#a78bfa'];
+  for(let i=0;i<30;i++){
+    const piece=document.createElement('div');
+    piece.className='confetti-piece';
+    piece.style.left=Math.random()*100+'%';
+    piece.style.background=colors[Math.floor(Math.random()*colors.length)];
+    piece.style.animationDuration=(1.5+Math.random()*2)+'s';
+    piece.style.animationDelay=(Math.random()*1)+'s';
+    piece.style.width=(6+Math.random()*8)+'px';
+    piece.style.height=(6+Math.random()*8)+'px';
+    wrap.appendChild(piece);
+  }
+}
+
+function showCelebration(msg){
+  spawnConfetti();
+  document.getElementById("celebMsg").innerText = msg;
+  document.getElementById("celebOverlay").classList.add("show");
+  navigator.vibrate?.([100,50,100,50,200]);
+}
+
+function closeCelebration(){
+  document.getElementById("celebOverlay").classList.remove("show");
+}
+
+/* ===== START MODE ===== */
+function startMode(mode){
+  document.body.classList.remove("morning-theme","evening-theme","quick-theme");
+  currentModeName = mode;
+
+  if(mode==='morning'){
+    document.body.classList.add("morning-theme");
+    setSpeech("صباح الأذكار نور ☀️");
+  }
+  if(mode==='evening'){
+    document.body.classList.add("evening-theme");
+    setSpeech("سكينة المساء 🌙");
+  }
+  if(mode==='quick'){
+    document.body.classList.add("quick-theme");
+    setSpeech("ورد بسيط وأجر كبير ✨");
+  }
+
+  document.getElementById("finish").style.display="none";
+  document.getElementById("tasbeehArea").style.display="none";
+  document.getElementById("card").style.display="block";
+  currentMode=data[mode];
+  currentIndex=0;currentCount=0;xp=0;combo=0;
+  loadZekr();
+  setTimeout(()=>{document.getElementById("card").scrollIntoView({behavior:"smooth"});},100);
+}
+
+function setSpeech(txt){
+  document.getElementById("speech").innerText=txt;
+  document.getElementById("inlineSpeech").innerText=txt;
+}
+
+function loadZekr(){
+  const item=currentMode[currentIndex];
+  document.getElementById("zekrTitle").innerText=item.title;
+  document.getElementById("zekrText").innerText=item.text;
+  document.getElementById("repeat").innerText=item.repeat;
+  document.getElementById("counter").innerText=`${currentCount}/${item.repeat}`;
+  updateProgress();
+}
+
+const motivationalTexts=[
+"أنت رائع 🌿","استمر يا بطل 💚","كل تسبيحة نور 🤲",
+"الملائكة تكتب لك الآن 🤍","باقي القليل ✨","يلا يا بطل 💪",
+"ما شاء الله عليك 🌟","الله يتقبل منك 🤍"
+];
+
+function countZekr(){
+  navigator.vibrate?.(40);
+  const item=currentMode[currentIndex];
+  currentCount++;xp+=5;combo++;
+  document.getElementById("xp").innerText=xp;
+  document.getElementById("combo").innerText=combo;
+  document.getElementById("counter").innerText=`${currentCount}/${item.repeat}`;
+  document.getElementById("counter").classList.add("glow");
+  setTimeout(()=>document.getElementById("counter").classList.remove("glow"),300);
+
+  const randomMsg=motivationalTexts[Math.floor(Math.random()*motivationalTexts.length)];
+  setSpeech(randomMsg);
+
+  if(currentCount>=item.repeat){
+    currentIndex++;currentCount=0;
+
+    if(currentIndex>=currentMode.length){
+      // ===== انتهى الورد بالكامل =====
+      document.getElementById("card").style.display="none";
+      document.getElementById("finish").style.display="block";
+
+      let celebMsg='';
+      let nextHintTxt='';
+
+      if(currentModeName==='morning'){
+        celebMsg='خلصت ورد الصباح يا بطل 🌅 بارك الله فيك!';
+        nextHintTxt='🌙 في انتظارك أذكار المساء عشان يكتمل حصنك اليوم!';
+        setSpeech("أشطر كتكوت في الصباح 🐥☀️");
+      } else if(currentModeName==='evening'){
+        celebMsg='خلصت ورد المساء يا بطل 🌙 الله يبارك فيك!';
+        nextHintTxt='☀️ نراك بكره في أذكار الصباح.. لا تنسانا!';
+        setSpeech("أشطر كتكوت في المساء 🐥🌙");
+      } else {
+        celebMsg='خلصت الورد المختصر يا بطل ⚡ جميل جداً!';
+        nextHintTxt='🌅 جرب كمان أذكار الصباح أو المساء للحصن الكامل!';
+        setSpeech("أشطر كتكوت 🐥✨");
+      }
+
+      document.getElementById("nextHint").innerText=nextHintTxt;
+      setTimeout(()=>showCelebration(celebMsg), 300);
+
+    } else {
+      // ===== خلص ذكر وحد بس =====
+      const doneMsg = `أتممت: ${currentMode[currentIndex-1].title} 🤍`;
+      showCelebration(doneMsg);
+      setTimeout(()=>{
+        closeCelebration();
+        loadZekr();
+      }, 2500);
+    }
+  }
+}
+
+function updateProgress(){
+  let percent=(currentIndex/currentMode.length)*100;
+  document.getElementById("progress").style.width=percent+"%";
+}
+
+let freeCounter=0;
+function openTasbeeh(){
+  document.getElementById("card").style.display="none";
+  document.getElementById("finish").style.display="none";
+  document.getElementById("tasbeehArea").style.display="block";
+  setSpeech("سبح براحتك 🤍");
+  setTimeout(()=>document.getElementById("tasbeehArea").scrollIntoView({behavior:"smooth"}),100);
+}
+
+function increaseTasbeeh(){
+  navigator.vibrate?.(40);
+  freeCounter++;
+  document.getElementById("freeCounter").innerText=freeCounter;
+}
 </script>
 </body>
 </html>
-```
